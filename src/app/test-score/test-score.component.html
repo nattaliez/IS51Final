@@ -1,0 +1,19 @@
+<div *ngIf="test.length > 0" class="test-container">
+  <alert dismissOnTimeout="test.timeout" dismissible="true" [type]="test.type" *ngFor="let test of test">
+    {{test.message}}
+  </alert>
+</div>
+
+<ul class="nav justify-content-end nav-action-container">
+  <li class="nav-item">
+    <button mat-raised-button color="primary">Add Test</button>
+  </li>
+  <li class="nav-item">
+      <button mat-raised-button color="primary">Computer Grade</button>
+  </li>
+  <li class="nav-item">
+      <button mat-raised-button color="primary">Final Grade</button>
+  </li>
+</ul>
+
+  

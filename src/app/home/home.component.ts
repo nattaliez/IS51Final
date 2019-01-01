@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LocalStorageService } from '../localStorageService';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
+  async ngOnInit() {
 
   }
 
+saveItemsToLocalStorage(contancts: Array<null>) {
 }

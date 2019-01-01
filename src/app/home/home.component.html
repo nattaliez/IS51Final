@@ -1,4 +1,11 @@
-<div class=" table-grid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav">
+  <a class="navbar-brand" href="#">Home App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class=" table-grid">
 
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -10,12 +17,47 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr>*ngFor="let name of names; let i = index">
+        <th *ngIf="!contact.editing" scope="row">{{contact.id}}</th>
+        <td *ngIf="!contact.editing">{{contact.firstName}}</td>
+        <td *ngIf="!contact.editing">{{contact.lastName}}</td>
+        <td *ngIf="!contact.editing">{{contact.email}}</td>
+        <td *ngIf="!contact.editing">{{contact.phone}}</td>
+        <td *ngIf="!contact.editing">
+          <button type="button" class="btn btn-danger contact-button" (click)="deleteContact(i)">X</button>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
+<th *ngIf="contact.editing" scope="row">
+  <input [(ngModel)]="contact.id" type="text" class="form-control" placeholder="ID" aria-label="ID"
+    aria-describedby="basic-addon1">
+</th>
+<td *ngIf="contact.editing">
+  <input [(ngModel)]="contact.firstName" type="text" class="form-control" placeholder="First Name" aria-label="ID"
+    aria-describedby="basic-addon1">
+</td>
+<td *ngIf="contact.editing">
+  <input [(ngModel)]="contact.lastName" type="text" class="form-control" placeholder="Last Name" aria-label="ID"
+    aria-describedby="basic-addon1">
+</td>
+<td *ngIf="contact.editing">
+  <input [(ngModel)]="contact.email" type="text" class="form-control" placeholder="Email" aria-label="ID"
+    aria-describedby="basic-addon1">
+</td>
+<td *ngIf="contact.editing">
+  <input [(ngModel)]="contact.phone" type="text" class="form-control" placeholder="Phone" aria-label="ID"
+    aria-describedby="basic-addon1">
+</td>
+<td *ngIf="contact.editing">
+  <div class="btn-group">
+      <button type="button" class="btn btn-danger contact-button" (click)="editContact(i)">+</button>
+    <button type="button" class="btn btn-success contact-button" (click)="saveContact(contact)">Save</button>
+    <button type="button" class="btn btn-danger contact-button" (click)="deleteContact(i)">X</button>
+  </div>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
